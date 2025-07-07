@@ -1,3 +1,13 @@
+/*
+UNSa - F.R.O. Tecnicatura Electrónica Universitaria 
+Objetivo: Hacer que un LED parpadee: se enciende, espera un momento (1 segundo), se apaga, espera otro momento, 
+repitiendose el ciclo. 
+El "Blink" o "Hello World" es la piedra angular sobre la que se construye todo tu aprendizaje 
+en el mundo de Arduino y la electrónica. Es la confirmación de que puedes comunicarte
+con tu microcontrolador y la puerta de entrada a proyectos mucho más complejos.
+*/
+
+
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
