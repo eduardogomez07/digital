@@ -8,16 +8,16 @@ con tu microcontrolador y la puerta de entrada a proyectos mucho más complejos.
 */
 
 
-// the setup function runs once when you press reset or power the board
+// La función setup() se ejecuta solo una vez, al encenderse la placa
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
+  // Inicializa la variable LED_BUILTIN como salida
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
-// the loop function runs over and over again forever
+// La función loop() se ejecuta repetidamente durante la ejecución del programa
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, HIGH);  // Se enciende el led (HIGH: 1, nivel de tensión en ALTO)
+  delay(1000);                      // Espera por 1 segundo
+  digitalWrite(LED_BUILTIN, LOW);   // Se apaga el led (LOW: 0, nivel de tensión en BAJO)
+  delay(1000);                      // Espera por 1 segundo
 }
