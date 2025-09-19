@@ -1,0 +1,33 @@
+//Corazón con caracteres
+//https://maxpromer.github.io/LCD-Character-Creator/
+//UNSa - ORÁN - TEU
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+byte customChar[] = {
+  0x00,
+  0x00,
+  0x1B,
+  0x1F,
+  0x1F,
+  0x0E,
+  0x04,
+  0x00
+};
+
+
+void setup()
+{
+  lcd.init();                      // initialize the lcd 
+  // Print a message to the LCD.
+  lcd.backlight();
+  lcd.createChar(0, customChar);
+  lcd.home();
+  lcd.write(0);
+}
+
+
+void loop()
+{
+}
