@@ -1,0 +1,48 @@
+//integración de código con la pantalla LCD
+#include <Servo.h> 
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+
+Servo myservo;   
+int angulo;
+
+int TRIG = 8;      
+int ECO = 9;     
+int DURACION;
+float DISTANCIA;
+
+void setup(){
+    lcd.init();                      // initialize the lcd 
+  // Print a message to the LCD.
+  lcd.backlight();
+  myservo.attach(3);  
+  pinMode(TRIG, OUTPUT);  
+  pinMode(ECO, INPUT);    
+  Serial.begin(9600); 
+}
+ 
+void loop() { 
+  myservo.write(0);
+
+  digitalWrite(TRIG, HIGH); 
+  delay(1);       
+  digitalWrite(TRIG, LOW); 
+
+  DURACION = pulseIn(ECO, HIGH);
+  DISTANCIA = DURACION / 58.2;
+	lcd.setCursor(0,0);
+  lcd.print(DISTANCIA);
+  if (DISTANCIA >10 && DISTANCIA <40){
+    myservo.write(90);
+    lcd.setCursor(0,1);
+    lcd.print("porton abierto");
+    delay(100);
+  }else{
+    myservo.write(0);
+    lcd.setCursor(0,1);
+    lcd.print("porton cerrado");
+  }
+
+}
